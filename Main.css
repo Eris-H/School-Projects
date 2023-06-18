@@ -1,0 +1,81 @@
+/* ERYX HORTIZUELA */
+/* the full page background */
+body
+{
+   background-color: rgb(197, 149, 95); 
+   background-repeat:no-repeat;
+}
+
+/* header 1 be bigger and dark purple in the middle*/
+h1
+{
+    color: rgb(92, 0, 128);
+    text-align: center;
+    font-size: 80px;
+}
+
+/* header 2 just be purple */
+h2
+{
+    color: purple;
+}
+
+/* header 3 just be purple*/
+h3
+{
+    color: purple;
+}
+
+/* paragraph font be courier and also navy blue and bold to make more readable with font size 18px*/
+p
+{
+    color: navy;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+/* center alignment for the boards version of the paragraph */
+.boardVer
+{
+    text-align: center;
+}
+
+/* standard buttons */
+button 
+{
+    background-color: red;
+    border-color: blue;
+    color: aliceblue;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 120px;
+    height: 80px;
+    cursor: grab;
+}
+
+/* the other button, disguised as the first*/
+.growButton
+{
+    background-color: red;
+    border-color: blue;
+    color: aliceblue;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 120px;
+    height: 80px;
+    cursor: grab;
+}
+
+/* but the disguise falls when it's hovered over */
+.growButton:hover
+{
+    background-color: white;
+    border: dotted;
+    color: black;
+    width: 160px;
+    height: 160px;
+    font-size: larger;
+    transition-duration: 0.5s;
+    content: "SUBJECT HAS ESCAPED";
+}

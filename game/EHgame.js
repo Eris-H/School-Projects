@@ -15,12 +15,31 @@ var PierceAudio = new Audio("pierce.wav");
 var CritAudio = new Audio("crit.wav");
 var playAudio = new Audio("playhit.wav");
 var whiffAudio = new Audio("whiff.wav");
+var WinAudio = new Audio("win.wav");
+var LoseAudio = new Audio("lose.wav");
 
 //started?
 var initTrue = false;
 
 //if 0 the player shouldn't be able to fight back yet, this is to prevent spamming and skipping slime turns
 var turnWho = 0;
+
+
+function WinCheck()
+{
+    if (slimeHealth <= 0)
+    {
+        document.getElementById("narrate").innerHTML = "You have defeated the slime!";
+        WinAudio.play();
+        turnWho = 2;
+    }
+    if (playHealth <= 0)
+    {
+        document.getElementById("narrate").innerHTML = "The slime has defeated you!";
+        LoseAudio.play();
+        turnwho = 2;
+    }
+}
 
 function SkinChange()
 {
@@ -51,12 +70,16 @@ function initiate()
         //allows player to fight
         turnWho = 1;
     }
+
 }
 
 function SlimeTurn()
 {
     //waits 1 second before slimeturn occurs
     setTimeout(function(){
+        WinCheck();
+        if (turnWho == 0)
+        {
         //player gets hit, can be critted
         var slimedamage = Math.ceil(Math.random() * 5);
         if (slimedamage == 1)
@@ -86,6 +109,8 @@ function SlimeTurn()
         document.getElementById("DisplayHealth").innerHTML = "slime health: " + slimeHealth + "% | player health: " + playHealth + "%";
         SkinChange();
         turnWho = 1;
+        WinCheck();
+    }
     }, 1000);
 
 }
@@ -123,7 +148,11 @@ function smash()
     //damage show
     document.getElementById("DisplayHealth").innerHTML = "slime health: " + slimeHealth + "% | player health: " + playHealth + "%";
     turnWho = 0;
-    SlimeTurn();
+    WinCheck();
+    if (turnWho != 2)
+    {
+        SlimeTurn();
+    }    
     }
 }
 
@@ -158,7 +187,11 @@ function slice()
     //damage show
     document.getElementById("DisplayHealth").innerHTML = "slime health: " + slimeHealth + "% | player health: " + playHealth + "%";
     turnWho = 0;
-    SlimeTurn();
+    WinCheck();
+    if (turnWho != 2)
+    {
+        SlimeTurn();
+    }    
     }
 }
 
@@ -193,6 +226,10 @@ function stab()
     //damage show
     document.getElementById("DisplayHealth").innerHTML = "slime health: " + slimeHealth + "% | player health: " + playHealth + "%";
     turnWho = 0;
-    SlimeTurn();
+    WinCheck();
+    if (turnWho != 2)
+    {
+        SlimeTurn();
+    }
     }
 }

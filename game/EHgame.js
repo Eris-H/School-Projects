@@ -24,20 +24,20 @@ var initTrue = false;
 //if 0 the player shouldn't be able to fight back yet, this is to prevent spamming and skipping slime turns
 var turnWho = 0;
 
-
+//wins or loses the game
 function WinCheck()
 {
     if (slimeHealth <= 0)
     {
         document.getElementById("narrate").innerHTML = "You have defeated the slime!";
         WinAudio.play();
-        turnWho = 2;
+        delete turnWho;
     }
     if (playHealth <= 0)
     {
         document.getElementById("narrate").innerHTML = "The slime has defeated you!";
         LoseAudio.play();
-        turnwho = 2;
+        delete turnwho;
     }
 }
 
@@ -57,12 +57,13 @@ function SkinChange()
     {
         SkinType = "pad";
     }
-    document.getElementById("SlimeSkin").innerHTML = SkinType;
+    //updates the skin shower
+    document.getElementById("SlimeSkin").innerHTML = "Slime skin: " + SkinType;
 }
 
 function initiate()
 {
-    //should only work once
+    //should only work once, starts the fight. 
     if (initTrue == false)
     {
         SkinChange();
@@ -82,6 +83,7 @@ function SlimeTurn()
         {
         //player gets hit, can be critted
         var slimedamage = Math.ceil(Math.random() * 5);
+        //crits
         if (slimedamage == 1)
         {
             playHealth = playHealth - 20;
@@ -89,23 +91,27 @@ function SlimeTurn()
             playAudio.play();
             document.getElementById("narrate").innerHTML = "The slime slams into your face!";
         }
+        //whiffs
         else if (slimedamage == 5)
         {
             whiffAudio.play();
             document.getElementById("narrate").innerHTML = "The slime flies off to the side!";
         }
+        //strong hit
         else if (slimedamage == 4 || slimedamage == 3)
         {
             playHealth = playHealth - 10;
             playAudio.play();
             document.getElementById("narrate").innerHTML = "The slime bounces into you!";
         }
+        //weak hit
         else
         {
             playHealth = playHealth - 5;
             playAudio.play();
             document.getElementById("narrate").innerHTML = "The slime bounces into you!";
         }
+        //update the health display then move to player turn
         document.getElementById("DisplayHealth").innerHTML = "slime health: " + slimeHealth + "% | player health: " + playHealth + "%";
         SkinChange();
         turnWho = 1;
@@ -142,10 +148,11 @@ function smash()
     }
     else
     {
+        //different audio if wrong option
         document.getElementById("narrate").innerHTML = "The slime deflected your attack!";
         FailAudio.play();
     }
-    //damage show
+    //update damage display then move to slime turn
     document.getElementById("DisplayHealth").innerHTML = "slime health: " + slimeHealth + "% | player health: " + playHealth + "%";
     turnWho = 0;
     WinCheck();
@@ -181,10 +188,11 @@ function slice()
     }
     else
     {
+        //differen audio if wrong choice
         document.getElementById("narrate").innerHTML = "The slime absorbed your attack!";
         FailAudio.play();
     }
-    //damage show
+    //update health display then move to slime turn
     document.getElementById("DisplayHealth").innerHTML = "slime health: " + slimeHealth + "% | player health: " + playHealth + "%";
     turnWho = 0;
     WinCheck();
@@ -220,10 +228,11 @@ function stab()
     }
     else
     {
+        //different audio if whiff
         document.getElementById("narrate").innerHTML = "The slime blocked your attack!";
         FailAudio.play();
     }
-    //damage show
+    //update damage display then move to slime turn
     document.getElementById("DisplayHealth").innerHTML = "slime health: " + slimeHealth + "% | player health: " + playHealth + "%";
     turnWho = 0;
     WinCheck();

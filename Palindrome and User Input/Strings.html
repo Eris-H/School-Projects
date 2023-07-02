@@ -9,29 +9,46 @@
     <link rel = "stylesheet" href = "UserInput.css">
 </head>
 <body>
-
+    
     <h1> INPUT WORD: </h1>
 
+    <!-- will be updated based on palindrome status -->
     <p id = "palinValid"> No word has been checked </p>
 
+    <!-- is where palindrome is entered and checked -->
     <form id = "palinCheck" onsubmit = "return false">
-        Palindrome: <input type = "text" id = "Palindrome"/> <br>
+        Palindrome: <br> <input type = "text" id = "Palindrome"/> <br>
         <input type = "submit" onclick = "PalinCheck();" />
     </form>
+
+
     <h1> INPUT NAME: </h1>
 
+    <!-- updates based on name validation -->
     <p id = "nameValid"> Name Not Yet Validated </p>
 
+    <!-- is where name is entered and checked -->
     <form id = "EnterNames" onsubmit = "return false">
     
-        First Name: <input type = "text" id = "FirstName" /> <br>
-         Last Name: <input type = "text" id = "LastName" />
-        <input type = "submit" onclick = "NameCheck();" />
-    </form>
+        First Name: <br><input type = "text" id = "FirstName" /> <br>
+         Last Name: <br><input type = "text" id = "LastName" /> <br> 
+        <input type = "submit" onclick = "NameCheck();" /> <br> <br>
+    </form> 
 
+    <!-- is where zip number is entered and checked, shouldn't run if name's haven't been validated-->
     <form id = "formSubmit" onsubmit = "return false">
-        Zip Code: <input type = "number" id = "Zips"/> </form>
+        Zip Code: <br> <input type = "number" id = "Zips"/>        
+        <input type = "submit" onclick = "ZipCheck();" /> <br> <br>
+    </form>
+        
+    <!-- junk text that is unreadable when blurry, is replaced with a space and then the revealtext's space is replaced with the actual message -->
+    <p id = "secretText" class = "secretText"> QaWxsXEdcRdRFTgbYGhbHJiJmiOKPL0899ujn8H7YGB6TFV5C5cDC32Q1x1zqx2cd4BF5ng7mm8 </p>
+    <p id = "revealText" class = "revealText">  </p>
+    <br>
 
-    <p id = "secretText"> QaWxsXEdcRdRFTgbYGhbHJiJmiOKPL0899ujn8H7YGB6TFV5C5cDC32Q1x1zqx2cd4BF5ng7mm8 </p>
+    <!-- logo i made for this made-up railway system-->
+    <p id = "image"> 
+        <img align = "center"  src = "Empires Railway.png"/> 
+    </p>
 </body>
 </html>

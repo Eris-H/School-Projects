@@ -6,3 +6,39 @@ body
    background-color: rgb(109, 130, 201); 
    background-repeat:no-repeat;
 }
+
+/* header colors */
+h1
+{
+    color: rgb(128, 0, 0);
+    text-align: center;
+}
+
+p
+{
+   color: rgb(95, 0, 59);
+   text-align: center;
+}
+
+form 
+{
+   color: rgb(95, 0, 59);
+   text-align: center;
+}
+
+.secretText
+{
+   color: transparent;
+   text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+mark
+{
+   background-color: rgb(0, 168, 98);
+}
+
+.revealText
+{
+   color: rgb(95, 0, 59);
+}
+

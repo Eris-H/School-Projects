@@ -1,0 +1,37 @@
+<!-- ERYX HORTIZUELA -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "UserInput.js"></script>
+    <title>userInputPage</title>
+    <link rel = "stylesheet" href = "UserInput.css">
+</head>
+<body>
+
+    <h1> INPUT WORD: </h1>
+
+    <p id = "palinValid"> No word has been checked </p>
+
+    <form id = "palinCheck" onsubmit = "return false">
+        Palindrome: <input type = "text" id = "Palindrome"/> <br>
+        <input type = "submit" onclick = "PalinCheck();" />
+    </form>
+    <h1> INPUT NAME: </h1>
+
+    <p id = "nameValid"> Name Not Yet Validated </p>
+
+    <form id = "EnterNames" onsubmit = "return false">
+    
+        First Name: <input type = "text" id = "FirstName" /> <br>
+         Last Name: <input type = "text" id = "LastName" />
+        <input type = "submit" onclick = "NameCheck();" />
+    </form>
+
+    <form id = "formSubmit" onsubmit = "return false">
+        Zip Code: <input type = "number" id = "Zips"/> </form>
+
+    <p id = "secretText"> QaWxsXEdcRdRFTgbYGhbHJiJmiOKPL0899ujn8H7YGB6TFV5C5cDC32Q1x1zqx2cd4BF5ng7mm8 </p>
+</body>
+</html>

@@ -18,11 +18,40 @@ var whiffAudio = new Audio("whiff.wav");
 var WinAudio = new Audio("win.wav");
 var LoseAudio = new Audio("lose.wav");
 
+var backgroundAudio = new Audio("background.wav");
+
 //started?
 var initTrue = false;
 
 //if 0 the player shouldn't be able to fight back yet, this is to prevent spamming and skipping slime turns
 var turnWho = 0;
+
+//player image
+var PLimg = document.getElementById("PlayerImg");
+//slime image
+var Simg = document.getElementById("SlimeImg");
+
+var PLchange = 100;
+
+
+
+
+
+function initiate()
+{
+    //should only work once, starts the fight. 
+    if (initTrue == false)
+    {
+        SkinChange();
+        initTrue = true;
+        //allows player to fight
+        turnWho = 1;
+
+        backgroundAudio.play();
+    }
+
+}
+
 
 //wins or loses the game
 function WinCheck()
@@ -32,12 +61,14 @@ function WinCheck()
         document.getElementById("narrate").innerHTML = "You have defeated the slime!";
         WinAudio.play();
         delete turnWho;
+        alert("YOU WIN!");
     }
     if (playHealth <= 0)
     {
         document.getElementById("narrate").innerHTML = "The slime has defeated you!";
         LoseAudio.play();
         delete turnwho;
+        alert("YOU LOSE!");
     }
 }
 
@@ -61,18 +92,7 @@ function SkinChange()
     document.getElementById("SlimeSkin").innerHTML = "Slime skin: " + SkinType;
 }
 
-function initiate()
-{
-    //should only work once, starts the fight. 
-    if (initTrue == false)
-    {
-        SkinChange();
-        initTrue = true;
-        //allows player to fight
-        turnWho = 1;
-    }
 
-}
 
 function SlimeTurn()
 {
@@ -145,6 +165,8 @@ function smash()
             //show different message if hit
             document.getElementById("narrate").innerHTML = "You smash the slime!";
         }
+
+    
     }
     else
     {
@@ -241,4 +263,25 @@ function stab()
         SlimeTurn();
     }
     }
+}
+
+
+
+//NEW PARTS
+function NameCheck()
+{
+
+    var fNam = document.getElementById("FirstName").value;
+    var lNam = document.getElementById("LastName").value;
+
+    var FullName = fNam + " " + lNam;
+
+    if (FullName > 20)
+    {
+
+    }
+    var ValidYes = "NOT VALID";
+
+    document.getElementById("nameValid").innerHTML = "Name Entered = " + FullName + "is " + ValidYes;
+
 }

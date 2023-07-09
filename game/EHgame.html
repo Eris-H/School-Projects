@@ -6,27 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="EHgame.js"></script>
     <title>Game</title>
+    <link rel = "stylesheet" href = "EHgame.css">
 </head>
 <body>
 
         <p>
             You have encountered a slime that can change its skin, use the right weapon when it changes its armor to defeat it.
         </p>
+
+        
         <!-- should only work once -->
+        <p>
         <button onclick = "initiate()"> initiate fight </button>
+        </p>
         <!-- slimeskin changes, is the armor type that the slime is using -->
         <!-- plate is weak to bludgeon, chain is weak to pierce, pad is weak to slice -->
         <div id = "SlimeSkin"> Fight not started </div>
         <!-- will go down with successful hits, random chance of crit which does double damage -->    
         <div id = "DisplayHealth"> slime health: 100% | player health: 100% </div>
-        <!-- the buttons to attack -->
+        
+        <p><!-- the buttons to attack -->
         <button onclick = "smash()"> smash </button>
         <button onclick = "stab()"> stab </button>
         <button onclick = "slice()"> slice </button>
+        </p>
+    
 
         <!-- the narration for the game -->
-        <div id = "narrate"> the slime appears </div>
+        <br>
+        <div id = "narrate" class = "narration"> the slime appears </div>
+        <br> <br> <br> <br>
 
+        <!-- the images-->
+        <p class = "fightPics">
+        <!-- slime -->
+        <img src = "slime.png" id = "SlimeImg" style = "position: absolute; left: 100; top: 100; width: 300px"/>
+        <img src = "BackImg.png" id = "SlimeBG"/>
+        <!-- player -->
+        <img src = "player.png" id = "PlayerImg" style = "position: absolute; left: 100; top: 100; width: 300px"/>
+        <img src = "BackImg.png" id = "PlayerBG"/>
+        </p>
 
 </body>
 </html>

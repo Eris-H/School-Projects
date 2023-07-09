@@ -1,0 +1,27 @@
+body
+{
+    background-color: rgb(65, 129, 65);
+}
+
+p
+{
+    text-align: center;
+    color: azure;
+}
+
+div
+{
+    text-align: center;
+    color: azure;
+}
+
+.narration 
+{
+    font-size: x-large;
+    color: aqua;
+}
+
+button
+{
+    align-self: center;
+}

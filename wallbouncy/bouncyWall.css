@@ -1,0 +1,21 @@
+/* ERYX HORTIZUELA */
+/* i can't lie when working on it I'd just keep watching it, waiting to see if it would hit the corner */
+body
+{
+    background-color: aqua;
+}
+
+.square
+{
+    position: absolute;
+    transform: matrix(0);
+    height: 970px;
+    width: 1875px;
+    background-color: lightcoral;
+}
+
+.diceGal
+{
+    outline: auto;
+    outline-color: white;
+}
